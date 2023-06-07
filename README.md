@@ -40,42 +40,46 @@ RegisterNumber: 212222240054
 ```
 
 ```
-Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+HALF SUBTRACTOR:
+module halfsub(a,b,diff,borrow);
+input a,b;
+output diff,borrow;
+wire x;
+xor(diff,a,b);
+not(x,a);
+and(borrow,x,b);
+endmodule
 
 
-Half subtractor: module halfsubtractor(A,B,Difference,Borrow); input A,B; output Difference,Borrow; assign Difference = (A^B); assign Borrow = (~A&B); endmodule
-
-Full subtractor: module fullsub(A,B,C,Difference,Borrow); input A,B,C; output Difference,Borrow; assign Difference = (A^B^C); assign Borrow = (~A&(B^C)|(B&C)); endmodule 
+FULL SUBTRACTOR:
+module fullsub(a,b,c,diff,borrow);
+input a,b,c;
+output borrow,diff;
+wire an,q,r,s,t,cn,u;
+not(an,a);
+not(cn,c);
+xor(q,a,b);
+xor(diff,q,c);
+and(s,a,b);
+and(t,q,cn);
+or(borrow,s,t);
+endmodule
 ```
 
-## Output:
+### Output:
+### Truthtable:
+![image](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/8422c7b2-9ece-4cc9-8bf3-2f04c10b5359)
+![image](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/2a3d4479-b7d8-4038-beb2-c9d448e9ee62)
 
-# Logic gate
-# FULL SUBTRACTOR:
-![241557376-9fb959ae-2711-4db1-8a6c-e2e9a1015a2e](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/0931335b-1920-45db-b4e1-a53f0f19971c)
+### RTL realization:
+![image](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/9ed85cc4-1cbf-4b16-af2a-28a052774028)
 
-# HALF SUBTRACTOR:
-![241557419-3bca3502-5f1d-4be0-b1d1-e61d14c7c6a5](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/e09a227a-286c-4ac4-9ecc-d2927b9bb431)
+![image](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/270b7a4b-7753-44ab-813e-bb09594f7bea)
 
-# RTL realization
-# FULL SUBTRACTOR:
-![241557462-b3ffe8cb-6723-4f70-bc79-8ac4224dba60](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/4c89d379-5dfb-413d-9abe-0e4e43661650)
 
-# HALF SUBTRACTOR:
-![241557489-544c725d-3cc5-4ab4-a4d4-be2a590336d6](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/cb0bdf59-f18a-4b73-a1b0-2e3489d7095d)
-
-# Timing diagram
-# FULL SUBTRACTOR:
-![241557573-af1b150e-fd7d-4ebd-ab04-c3890ab15a6d](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/ddd6180a-5847-46e7-a971-8c67175d8d81)
-
-# HALF SUBTRACTOR:
-![241557580-bd48f4b9-c719-4cba-b0ab-e6842337bef8](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/73c920ba-8afb-419f-b24a-60319795a3ad)
-
-# Truth Table
-![232961530-f3ad4dad-1a5d-43ab-b623-d4c1e970fc59](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/76c8f35f-69df-413e-ba1e-f0a5d254781e)
-
-![232961530-f3ad4dad-1a5d-43ab-b623-d4c1e970fc59](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/33667f8f-7fcb-45e1-9d37-10dc9b98d89e)
-
+### Timing diagram:
+![image](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/c49cfc79-da53-42f4-9007-bf8138beed41)
+![image](https://github.com/LOKESHKUMARPANCHATCHARAM/Experiment--03-Half-Subtractor-and-Full-subtractor/assets/119644432/045fa48b-c8f4-4aa1-b661-712a85ab7dff)
 
 ## Result:
 Thus the half subtractor and full subtractor circuits are designed and the truth tables is verified using quartus software.
